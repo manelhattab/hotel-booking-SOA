@@ -104,7 +104,7 @@ Endpoint : `POST http://localhost:3000/graphql`
 ### Mutations
 
 ```graphql
-mutation { createUser(name: "Manel Httab", email: "manel.hattab@gmail.com", password: "manel123456") { id name email } }
+mutation { createUser(name: "Manel Hattab", email: "manel.hattab@gmail.com", password: "manel123456") { id name email } }
 mutation { createHotel(name: "Hotel Manel", location: "Sousse", price: 120, rooms: 8) { id name } }
 mutation { createReservation(user_id: "...", hotel_id: "...", check_in: "2026-06-01", check_out: "2026-06-05") { id status } }
 mutation { cancelReservation(id: "...") { success message } }
