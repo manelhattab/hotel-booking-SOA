@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package reservation;
+
+service ReservationService {
+  rpc CreateReservation (CreateReservationRequest) returns (ReservationResponse);
+  rpc GetReservation    (GetReservationRequest)    returns (ReservationResponse);
+  rpc ListByUser        (ListByUserRequest)        returns (ListReservationsResponse);
+  rpc CancelReservation (CancelReservationRequest) returns (DeleteResponse);
+}
+
+message CreateReservationRequest {
+  string user_id   = 1;
+  string hotel_id  = 2;
+  string check_in  = 3;
+  string check_out = 4;
+}
+
+message GetReservationRequest {
+  string id = 1;
+}
+
+message ListByUserRequest {
+  string user_id = 1;
+}
+
+message CancelReservationRequest {
+  string id = 1;
+}
+
+message ReservationResponse {
+  string id        = 1;
+  string user_id   = 2;
+  string hotel_id  = 3;
+  string check_in  = 4;
+  string check_out = 5;
+  string status    = 6;
+}
+
+message ListReservationsResponse {
+  repeated ReservationResponse reservations = 1;
+}
+
+message DeleteResponse {
+  bool   success = 1;
+  string message = 2;
+}
